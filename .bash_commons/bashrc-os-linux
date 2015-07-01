@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Add in the ~/bin in home directory to the path
+export PATH=$PATH:~/bin
+
+#Add homedir for python packages
+#export PYTHONPATH=$PYTHONPATH:~/py-lib:~/bin
+
+if [[ $TMUX ]]; then
+    PROMPT_COMMAND='eval `/nail/scripts/tmux-env`'
+fi
+
