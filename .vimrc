@@ -7,17 +7,18 @@
 " Load vim-plug
 if empty(glob("~/.vim/autoload/plug.vim"))
     execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
-endifo
-" Then reload and :PlugInstall
+endif
 
 call plug#begin()
 Plug 'flazz/vim-colorschemes' | Plug 'altercation/vim-colors-solarized'
+Plug 'whatyouhide/vim-gotham'
 Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'klen/python-mode', { 'for': 'python' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
+Plug 'fatih/vim-go'
 call plug#end()
 
 
@@ -29,15 +30,17 @@ call plug#end()
 
 " colorscheme xoria256
 
-colorscheme desert
+" colorscheme desert
+
+colorscheme gotham256
 
 " colorscheme solarized
-"if has('gui_running')
-"    set background=light
-"else
-"    set background=dark
-"endif
-"let g:solarized_termcolors=16
+" if has('gui_running')
+"     set background=light
+" else
+"     set background=dark
+" endif
+" let g:solarized_termcolors=16
 
 " Recommended config for powerline - no difference though
 " set guifont=Inconsolata\ for\ Powerline:h15
