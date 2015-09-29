@@ -15,8 +15,9 @@ alias duha="du --max-depth=1 -h"
 
 # GIT specific settings
 alias git-diff="git-diff --color"
-#export GIT_PAGER="cat"  #default (less) is better
-
+alias git-list-branches="git for-each-ref --sort=-committerdate --format='%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' | column -ts'|'"
+alias git-list-remote-branches="git for-each-ref --sort=-committerdate refs/remotes --format='%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' | column -ts'|'"
+alias git-list-local-branches="git for-each-ref --sort=-committerdate refs/heads --format='%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' | column -ts'|'"
 
 # Image viewer alias
 alias feh="feh -g 1024x768 -Z"

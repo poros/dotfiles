@@ -18,7 +18,8 @@ Plug 'klen/python-mode', { 'for': 'python' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
 call plug#end()
 
 
@@ -121,8 +122,7 @@ set tabstop=4		" Tab counts for 4 spaces.
 set softtabstop=4	" == tabstop ? Prevent forest fires : mix tab+spaces.
 set shiftwidth=4	" Shift text 4 spaces.
 set nosmarttab		" Use tabstop for all tabbing.
-set expandtab
-set noexpandtab		" Don't expand tabs to spaces.
+set expandtab       " Expand tans to spaces
 " " Input => Backspace & Left/Right Movement
 set backspace=eol,start,indent
 set whichwrap=b,s,h,l,<,>,[,]
