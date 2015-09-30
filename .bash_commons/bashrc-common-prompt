@@ -105,9 +105,9 @@ fi
 
 # helper commands to explicitly change the setting:
 dumb_prompt () {
-  git config bash.big-repo 1
+    git config bash.big-repo 1
 }
 
 smart_prompt () {
-  git config --unset bash.big-repo
+    git config --unset bash.big-repo
 }
