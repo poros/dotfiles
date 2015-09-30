@@ -7,6 +7,7 @@ alias grep='grep --colour=auto'
 alias la="ls -la"
 alias p="pwd"
 alias ll="ls -l"
+
 # DUH
 alias duh="du --max-depth=1 -h --exclude=./.*"
 alias duha="du --max-depth=1 -h"
@@ -14,22 +15,11 @@ alias duha="du --max-depth=1 -h"
 
 # GIT specific settings
 alias git-diff="git-diff --color"
-#export GIT_PAGER="cat"  #default (less) is better
-alias gs='git status'
-
-# Image viewer alias
-alias feh="feh -g 1024x768 -Z"
-
-
-# Cd ripping/burning stuff
-alias burncd="cdrecord --dev ATAPI:/dev/sr0"
-alias ripcd="cdrdao read-cd --read-raw --device /dev/sr0 --driver generic-mmc-raw"
-alias mkiso="mkisofs -r -J -l -d -allow-multidot -allow-leading-dots -no-bak"
+alias git-list-branches="git for-each-ref --sort=-committerdate --format='%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' | column -ts'|'"
+alias git-list-remote-branches="git for-each-ref --sort=-committerdate refs/remotes --format='%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' | column -ts'|'"
+alias git-list-local-branches="git for-each-ref --sort=-committerdate refs/heads --format='%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' | column -ts'|'"
 
 
 # System stuff
-alias shutdown="sudo /sbin/shutdown -h now"
-alias reboot="sudo /sbin/reboot"
-
-# Buildbot urldecode
-alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
+alias shutdown="/sbin/shutdown -h now"
+alias reboot="/sbin/reboot"
