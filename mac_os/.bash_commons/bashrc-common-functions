@@ -1,3 +1,16 @@
 #!/bin/bash
 # User custom scripts
-historyawk(){ history|awk '{a[$2]++}END{for(i in a){printf"%5d\t%s\n",a[i],i}}'|sort -nr|head; }
+
+historyawk() { history|awk '{a[$2]++}END{for(i in a){printf"%5d\t%s\n",a[i],i}}'|sort -nr|head; }
+
+# Update requirements.txt based on setup.py
+# run inside the same directory of setup.py
+update_requirements_txt() {
+    package_name=$1
+    virtualenv gen_req_venv
+    source gen_req_venv/bin/activate
+    pip install .
+    pip freeze --local | grep -v "^$package_name==" > requirements.txt
+   deactivate
+   rm -rf gen_req_venv
+}
