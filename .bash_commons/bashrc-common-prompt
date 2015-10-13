@@ -13,7 +13,7 @@
 #
 # Pedro Melo, <melo@simplicidade.org>
 
-_update_prompt () {
+_update_prompt(){
     ## Save $? early, we'll need it later
     local exit="$?"
 
@@ -99,6 +99,10 @@ _update_prompt () {
 }
 
 if [ -n "$PS1" ] ; then
+    git_prompt="/etc/bash_completion.d/git-prompt"
+    if [ -e  $git_prompt ]; then
+        source $git_prompt
+    fi
     PROMPT_COMMAND='_update_prompt'
     export PROMPT_COMMAND
 fi

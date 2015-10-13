@@ -20,6 +20,7 @@ Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
+Plug 'Rykka/riv.vim', { 'for': 'rst' }
 call plug#end()
 
 
