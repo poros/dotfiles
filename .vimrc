@@ -138,11 +138,13 @@ set laststatus=2 " powerline shows up also without splits
 let g:pymode_folding = 1 " activate folding for pymode
 let g:pymode_virtualenv = 1 " let pymode look into virtualenv
 
-let g:pymode_lint_ignore = "E226,E262,E261,E126,E501,E701,E731,E301,E302,E128,W191,W0312,C901" " pymode ignore these errors when checking syntax
-let g:syntastic_mode_map = { 'passive_filetypes': ['python'] } " deactivate syntastic for python files since pymode
-" let g:syntastic_python_checkers=['pylint']
-" let g:syntastic_python_checkers=['flake8']
-" let g:syntastic_python_checker_args='--ignore=E226,E262,E261,E126,E501,E701,E301,E302,E128,W191,W0312,C901'
+" let g:pymode_lint_ignore = 'E226,E262,E261,E126,E501,E701,E731,E301,E302,E128,W191,W0312,C901'
+" let g:syntastic_mode_map = { 'passive_filetypes': ['python'] } " deactivate syntastic for python files since pymode
+let g:pymode_lint = 0 " deactivate pymode lint checking because syntastic
+let g:syntastic_python_checker_args = '--ignore=E226,E262,E261,E126,E501,E701,E731,E301,E302,E128,W191,W0312,C901'
+let g:syntastic_python_checkers = ['python', 'flake8']
+let g:syntastic_always_populate_loc_list = 1 " refresh the error list automatocally instead of typing :Errors
+let g:syntastic_auto_loc_list = 1 " open the error list automatically instead of using :Errors
 
 let g:pymode_rope = 0 " disable pymode rope autocompletion due to bug, use jedi-vim instead
 
