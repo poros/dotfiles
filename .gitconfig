@@ -1,6 +1,7 @@
 [core]
 editor = vim
-	edit = vim
+edit = vim
+excludesfile = ~/.gitignore_global
 [color]
 branch = auto
 diff = auto

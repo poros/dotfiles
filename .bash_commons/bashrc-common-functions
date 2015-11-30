@@ -6,11 +6,26 @@ historyawk() { history|awk '{a[$2]++}END{for(i in a){printf"%5d\t%s\n",a[i],i}}'
 # Update requirements.txt based on setup.py
 # run inside the same directory of setup.py
 update_requirements_txt() {
-    package_name=$1
-    virtualenv gen_req_venv
-    source gen_req_venv/bin/activate
-    pip install .
-    pip freeze --local | grep -v "^$package_name==" > requirements.txt
+   folder=$(basename $(pwd))
+   package_name=${1-$folder}
+   virtualenv gen_req_venv
+   source gen_req_venv/bin/activate
+   pip install .
+   pip freeze --local | grep -v "^$package_name==" > requirements.txt
    deactivate
    rm -rf gen_req_venv
+}
+
+# Create a dev virtualenv so I can run vim syntastic flak8 checks for that version of Python.
+# Pyhton interpreter is first argument, defaults to system one
+devenv() {
+   if [ -d devenv ]
+   then
+     source devenv/bin/activate
+   else
+     if [ -z ${1+x} ]; then virtualenv devenv; else virtualenv devenv -p $1; fi
+     source devenv/bin/activate
+     pip install .
+     pip install -r requirements-dev.txt
+   fi
 }
