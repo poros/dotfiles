@@ -105,6 +105,10 @@ if [ -n "$PS1" ] ; then
     export PROMPT_COMMAND
 fi
 
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
 # helper commands to explicitly change the setting:
 dumb_prompt () {
     git config bash.big-repo 1
