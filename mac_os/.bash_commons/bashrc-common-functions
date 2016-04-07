@@ -30,3 +30,8 @@ devenv() {
      pip install -r requirements-dev.txt
    fi
 }
+
+# set GOPATH for projects using Gom
+set_gopath() {
+    export GOPATH=`pwd -L`:`pwd -L`/_vendor
+}
