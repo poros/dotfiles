@@ -8,6 +8,7 @@ historyawk() { history|awk '{a[$2]++}END{for(i in a){printf"%5d\t%s\n",a[i],i}}'
 update_requirements_txt() {
    folder=$(basename $(pwd))
    package_name=${1-$folder}
+   package_name=${package_name//_/-}
    virtualenv gen_req_venv
    source gen_req_venv/bin/activate
    pip install .
