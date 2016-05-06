@@ -5,30 +5,40 @@ historyawk() { history|awk '{a[$2]++}END{for(i in a){printf"%5d\t%s\n",a[i],i}}'
 
 # Update requirements.txt based on setup.py
 # run inside the same directory of setup.py
+# Pyhton interpreter is second argument, defaults to system one
 update_requirements_txt() {
-   folder=$(basename $(pwd))
-   package_name=${1-$folder}
-   package_name=${package_name//_/-}
-   virtualenv gen_req_venv
-   source gen_req_venv/bin/activate
-   pip install .
-   pip freeze --local | grep -v "^$package_name==" > requirements.txt
-   deactivate
-   rm -rf gen_req_venv
+    folder=$(basename $(pwd))
+    package_name=${1-$folder}
+    package_name=${package_name//_/-}
+    rm -rf gen_req_venv
+    if [ -z ${2+x} ]; then virtualenv gen_req_venv; else virtualenv gen_req_venv -p $2; fi
+    source gen_req_venv/bin/activate
+    pip install .
+    pip freeze --local | grep -v "^$package_name==" > requirements.txt
+    deactivate
+    rm -rf gen_req_venv
 }
 
 # Create a dev virtualenv so I can run vim syntastic flak8 checks for that version of Python.
 # Pyhton interpreter is first argument, defaults to system one
 devenv() {
-   if [ -d devenv ]
-   then
-     source devenv/bin/activate
-   else
-     if [ -z ${1+x} ]; then virtualenv devenv; else virtualenv devenv -p $1; fi
-     source devenv/bin/activate
-     pip install -r requirements.txt
-     pip install -r requirements-dev.txt
-   fi
+    if [ -d virtualenv_run ]
+    then
+        source virtualenv_run/bin/activate
+    else
+        if [ -z ${1+x} ]; then virtualenv virtualenv_run; else virtualenv virtualenv_run -p $1; fi
+        source virtualenv_run/bin/
+        if [ -e requirements.txt ]
+        then
+            pip install -r requirements.txt
+        else
+            pip install .
+        fi
+        if [ -e requirements-dev.txt ]
+        then
+            pip install -r requirements-dev.txt
+        fi
+    fi
 }
 
 # set GOPATH for projects using Gom
