@@ -27,7 +27,7 @@ devenv() {
         source virtualenv_run/bin/activate
     else
         if [ -z ${1+x} ]; then virtualenv virtualenv_run; else virtualenv virtualenv_run -p $1; fi
-        source virtualenv_run/bin/
+        source virtualenv_run/bin/activate
         if [ -e requirements.txt ]
         then
             pip install -r requirements.txt
