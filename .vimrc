@@ -9,20 +9,22 @@ if empty(glob("~/.vim/autoload/plug.vim"))
     execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
 
-call plug#begin()
-    Plug 'flazz/vim-colorschemes' | Plug 'altercation/vim-colors-solarized'
-    Plug 'whatyouhide/vim-gotham'
-    Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-    Plug 'klen/python-mode', { 'for': 'python' }
-    Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-    Plug 'scrooloose/syntastic'
-    Plug 'tpope/vim-fugitive'
-    Plug 'fatih/vim-go', { 'for': 'go' }
-    Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
-    Plug 'Rykka/riv.vim', { 'for': 'rst' }
-    Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-call plug#end()
+if !empty(glob("~/.vim/autoload/plug.vim"))
+    call plug#begin()
+        Plug 'flazz/vim-colorschemes' | Plug 'altercation/vim-colors-solarized'
+        Plug 'whatyouhide/vim-gotham'
+        Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+        Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+        Plug 'klen/python-mode', { 'for': 'python' }
+        Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+        Plug 'scrooloose/syntastic'
+        Plug 'tpope/vim-fugitive'
+        Plug 'fatih/vim-go', { 'for': 'go' }
+        Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
+        Plug 'Rykka/riv.vim', { 'for': 'rst' }
+        Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+    call plug#end()
+endif
 
 
 
