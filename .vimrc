@@ -10,18 +10,18 @@ if empty(glob("~/.vim/autoload/plug.vim"))
 endif
 
 call plug#begin()
-Plug 'flazz/vim-colorschemes' | Plug 'altercation/vim-colors-solarized'
-Plug 'whatyouhide/vim-gotham'
-Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'klen/python-mode', { 'for': 'python' }
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-Plug 'scrooloose/syntastic'
-Plug 'tpope/vim-fugitive'
-Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
-Plug 'Rykka/riv.vim', { 'for': 'rst' }
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+    Plug 'flazz/vim-colorschemes' | Plug 'altercation/vim-colors-solarized'
+    Plug 'whatyouhide/vim-gotham'
+    Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+    Plug 'klen/python-mode', { 'for': 'python' }
+    Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+    Plug 'scrooloose/syntastic'
+    Plug 'tpope/vim-fugitive'
+    Plug 'fatih/vim-go', { 'for': 'go' }
+    Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
+    Plug 'Rykka/riv.vim', { 'for': 'rst' }
+    Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 call plug#end()
 
 
@@ -146,8 +146,8 @@ let g:syntastic_python_flake8_args = '--ignore=E226,E262,E261,E126,E501,E701,E73
 let g:syntastic_python_checkers = ['python', 'flake8']
 let g:syntastic_always_populate_loc_list = 1 " refresh the error list automatocally instead of typing :Errors
 let g:syntastic_auto_loc_list = 1 " open the error list automatically instead of using :Errors
-"let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck'] " fix vim lagging when closing go files
-"let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] } " fix vim lagging when closing go files
+" let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck'] " fix vim lagging when closing go files
+" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] } " fix vim lagging when closing go files
 let g:go_list_type = "quickfix" " fix the location list window that contains the output of commands such as :GoBuild and :GoTest not appearing
 let g:rustfmt_autosave = 1 "enable auto-formatting on saving for rust
 
