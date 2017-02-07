@@ -21,6 +21,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
 Plug 'Rykka/riv.vim', { 'for': 'rst' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 call plug#end()
 
 
@@ -77,10 +78,10 @@ augroup highlights
 	" Put line numbers more in the background visually.
 	autocmd ColorScheme * highlight LineNr ctermfg=darkgrey guifg=darkgrey
 	" Highlight part of lines longer than 80 characters, like this one.
-	autocmd ColorScheme * highlight OverLength ctermbg=black ctermfg=white guibg=#592929
-	autocmd BufWinEnter * match OverLength /\%80v.\+/
-	autocmd InsertEnter * match OverLength /\%80v.\+/
-	autocmd InsertLeave * match OverLength /\%80v.\+/
+	" autocmd ColorScheme * highlight OverLength ctermbg=black ctermfg=white guibg=#592929
+	" autocmd BufWinEnter * match OverLength /\%80v.\+/
+	" autocmd InsertEnter * match OverLength /\%80v.\+/
+	" autocmd InsertLeave * match OverLength /\%80v.\+/
 augroup END
 
 
@@ -145,9 +146,11 @@ let g:syntastic_python_flake8_args = '--ignore=E226,E262,E261,E126,E501,E701,E73
 let g:syntastic_python_checkers = ['python', 'flake8']
 let g:syntastic_always_populate_loc_list = 1 " refresh the error list automatocally instead of typing :Errors
 let g:syntastic_auto_loc_list = 1 " open the error list automatically instead of using :Errors
-" let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck'] " fix vim lagging when closing go files
-" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] } " fix vim lagging when closing go files
+"let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck'] " fix vim lagging when closing go files
+"let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] } " fix vim lagging when closing go files
 let g:go_list_type = "quickfix" " fix the location list window that contains the output of commands such as :GoBuild and :GoTest not appearing
+let g:rustfmt_autosave = 1 "enable auto-formatting on saving for rust
+
 
 let g:pymode_rope = 0 " disable pymode rope autocompletion due to bug, use jedi-vim instead
 
