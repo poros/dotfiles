@@ -163,3 +163,8 @@ let g:pymode_rope = 0 " disable pymode rope autocompletion due to bug, use jedi-
 let g:jedi#use_tabs_not_buffers = 1 " jedi-vim go to definition open tab <leader>d
 
 map <C-n> :NERDTreeToggle<CR>
+
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)
