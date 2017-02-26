@@ -40,6 +40,7 @@ sourceFrom "bashrc-host-${HOSTNAME}"
 sourceFrom bashrc-common-final
 
 export PYTHONSTARTUP=~/.pythonrc.py
+export RUST_SRC_PATH=~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
 
 # Setting PATH for Python 3.5
 # The orginal version is saved in .bash_profile.pysave

@@ -40,5 +40,7 @@ sourceFrom "bashrc-host-${HOSTNAME}"
 sourceFrom bashrc-common-final
 
 export PYTHONSTARTUP=~/.pythonrc.py
+export RUST_SRC_PATH=~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
+
 # Setting cargo PATH for rust
 PATH="$HOME/.cargo/bin:$PATH"
