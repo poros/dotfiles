@@ -40,3 +40,5 @@ sourceFrom "bashrc-host-${HOSTNAME}"
 sourceFrom bashrc-common-final
 
 export PYTHONSTARTUP=~/.pythonrc.py
+# Setting cargo PATH for rust
+PATH="$HOME/.cargo/bin:$PATH"
