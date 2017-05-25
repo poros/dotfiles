@@ -45,3 +45,8 @@ devenv() {
 set_gopath() {
     export GOPATH=`pwd -L`:`pwd -L`/_vendor
 }
+
+# open interactive shell in a docker container
+docker_shell() {
+    docker exec -ti $1 /bin/bash
+}
