@@ -155,7 +155,7 @@ let g:syntastic_auto_loc_list = 1 " open the error list automatically instead of
 " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] } " fix vim lagging when closing go files
 let g:go_list_type = "quickfix" " fix the location list window that contains the output of commands such as :GoBuild and :GoTest not appearing
 let g:rustfmt_autosave = 1 "enable auto-formatting on saving for rust
-let g:racer_cmd = "~/.vim/plugged/vim-racer/autoload/racer.vim"
+let g:racer_cmd = "$HOME/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
 
 
