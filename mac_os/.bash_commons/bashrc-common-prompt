@@ -101,7 +101,9 @@ if [ -n "$PS1" ] ; then
     if [ -e  $git_prompt ]; then
         source $git_prompt 
     fi
-    PROMPT_COMMAND='_update_prompt'
+    # since we need the last exit value $? to set :) or :(, we want any other existing
+    # prompt customization to happen after our function
+    PROMPT_COMMAND="_update_prompt; $PROMPT_COMMAND"
     export PROMPT_COMMAND
 fi
 

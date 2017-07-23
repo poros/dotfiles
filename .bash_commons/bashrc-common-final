@@ -1,4 +1,10 @@
 #!/bin/bash
 
+# aactivator sets the prompt in a way which is not compatible with how we do it,
+# since we need to store $? for setting :) or :(
+# the way to get around it is to init aactivator before and then putting our prompt
+# command before the aactivator one in bashrc-common-prompt
+which aactivator > /dev/null 2>&1 && eval "$(aactivator init)"
+
 # Prompt
 sourceFrom bashrc-common-prompt
