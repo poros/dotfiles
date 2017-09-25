@@ -23,7 +23,7 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
         Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
         Plug 'Rykka/riv.vim', { 'for': 'rst' }
         Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-        Plug 'timonv/vim-cargo', { 'for': 'rust' }
+        Plug 'timonv/vim-cargo'
         Plug 'racer-rust/vim-racer', { 'for': 'rust' }
         Plug 'hashivim/vim-terraform'
     call plug#end()
