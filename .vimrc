@@ -27,6 +27,7 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
         Plug 'racer-rust/vim-racer', { 'for': 'rust' }
         Plug 'hashivim/vim-terraform'
         Plug 'cespare/vim-toml'
+        Plug 'tpope/vim-unimpaired'
     call plug#end()
 endif
 
