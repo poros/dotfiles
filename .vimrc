@@ -16,6 +16,7 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
         Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
         Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
         Plug 'klen/python-mode', { 'for': 'python' }
+        Plug 'davidhalter/jedi-vim', { 'for': 'python' }
         Plug 'scrooloose/syntastic'
         Plug 'tpope/vim-fugitive'
         Plug 'fatih/vim-go', { 'for': 'go' }
@@ -158,6 +159,11 @@ let g:go_list_type = "quickfix" " fix the location list window that contains the
 let g:rustfmt_autosave = 1 "enable auto-formatting on saving for rust
 let g:racer_cmd = "$HOME/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
+
+
+let g:pymode_rope = 0 " disable pymode rope autocompletion due to bug, use jedi-vim instead
+
+let g:jedi#use_tabs_not_buffers = 1 " jedi-vim go to definition open tab <leader>d
 
 map <C-n> :NERDTreeToggle<CR>
 
