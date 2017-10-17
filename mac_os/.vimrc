@@ -9,18 +9,6 @@ if empty(glob("~/.vim/autoload/plug.vim"))
     execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
 
-function! BuildYCM(info)
-  " Function to be called after you install YouCompleteMe for configuration
-  " info is a dictionary with 3 fields
-  " - name:   name of the plugin
-  " - status: 'installed', 'updated', or 'unchanged'
-  " - force:  set on PlugInstall! or PlugUpdate!
-  if a:info.status == 'installed' || a:info.force
-    !./install.py
-  endif
-endfunction
-
-
 if !empty(glob("~/.vim/autoload/plug.vim"))
     call plug#begin()
         Plug 'flazz/vim-colorschemes' | Plug 'altercation/vim-colors-solarized'
@@ -39,7 +27,6 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
         Plug 'hashivim/vim-terraform'
         Plug 'cespare/vim-toml'
         Plug 'tpope/vim-unimpaired'
-        Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') } " can be extended to go and rust
     call plug#end()
 endif
 
@@ -155,28 +142,20 @@ set sessionoptions-=options " Don't persist options and mappings because can cor
 
 set laststatus=2 " powerline shows up also without splits
 
-" pymode
 let g:pymode_folding = 1 " activate folding for pymode
 let g:pymode_virtualenv = 1 " let pymode look into virtualenv
-let g:pymode_lint = 0 " deactivate pymode lint checking because syntastic
-" let g:pymode_lint_ignore = 'E226,E262,E261,E126,E501,E701,E731,E301,E302,E128,W191,W0312,C901'
-let g:pymode_rope = 0 " disable pymode rope autocompletion to use other autocompletions
 
-" syntastic
+" let g:pymode_lint_ignore = 'E226,E262,E261,E126,E501,E701,E731,E301,E302,E128,W191,W0312,C901'
 " let g:syntastic_mode_map = { 'passive_filetypes': ['python'] } " deactivate syntastic for python files since pymode
+let g:pymode_lint = 0 " deactivate pymode lint checking because syntastic
 let g:syntastic_python_flake8_args = '--ignore=E226,E262,E261,E126,E501,E701,E731,E301,E302,E128,W191,W0312,C901'
 let g:syntastic_python_checkers = ['python', 'flake8']
 let g:syntastic_always_populate_loc_list = 1 " refresh the error list automatocally instead of typing :Errors
 let g:syntastic_auto_loc_list = 1 " open the error list automatically instead of using :Errors
 " let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck'] " fix vim lagging when closing go files
 " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] } " fix vim lagging when closing go files
-
 let g:go_list_type = "quickfix" " fix the location list window that contains the output of commands such as :GoBuild and :GoTest not appearing
-
-" vim-rust
 let g:rustfmt_autosave = 1 "enable auto-formatting on saving for rust
-
-" racer
 let g:racer_cmd = "$HOME/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
 
