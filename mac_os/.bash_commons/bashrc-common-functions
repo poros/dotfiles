@@ -48,5 +48,5 @@ set_gopath() {
 
 # open interactive shell in a docker container
 docker_shell() {
-    docker exec -ti $1 /bin/bash
+    docker exec -ti $1 env COLUMNS=$COLUMNS LINES=$LINES TERM=$TERM /bin/bash
 }
