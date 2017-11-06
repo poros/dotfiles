@@ -155,15 +155,12 @@ let g:syntastic_always_populate_loc_list = 1 " refresh the error list automatoca
 let g:syntastic_auto_loc_list = 1 " open the error list automatically instead of using :Errors
 " let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck'] " fix vim lagging when closing go files
 " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] } " fix vim lagging when closing go files
+let g:pymode_rope = 0 " disable pymode rope autocompletion due to bug, use jedi-vim instead
+let g:jedi#use_tabs_not_buffers = 1 " jedi-vim go to definition open tab <leader>d
 let g:go_list_type = "quickfix" " fix the location list window that contains the output of commands such as :GoBuild and :GoTest not appearing
 let g:rustfmt_autosave = 1 "enable auto-formatting on saving for rust
 let g:racer_cmd = "$HOME/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
-
-
-let g:pymode_rope = 0 " disable pymode rope autocompletion due to bug, use jedi-vim instead
-
-let g:jedi#use_tabs_not_buffers = 1 " jedi-vim go to definition open tab <leader>d
 
 map <C-n> :NERDTreeToggle<CR>
 
