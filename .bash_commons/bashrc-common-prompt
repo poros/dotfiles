@@ -92,9 +92,9 @@ _update_prompt(){
         branch=" (sandbox)"
     fi
     if [ $VIRTUAL_ENV ]; then
-        export PS1="(`basename \"$VIRTUAL_ENV\"`)[$u@$host_directory]$branch $ex$p ";
+        export PS1="(`basename \"$VIRTUAL_ENV\"`)[$u@$host_directory]$branch $ex$p \n";
     else
-        export PS1="[$u@$host_directory]$branch $ex$p ";
+        export PS1="[$u@$host_directory]$branch $ex$p \n";
     fi
 }
 
