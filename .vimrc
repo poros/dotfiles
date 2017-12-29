@@ -12,6 +12,7 @@ endif
 if !empty(glob("~/.vim/autoload/plug.vim"))
     call plug#begin()
         Plug 'flazz/vim-colorschemes' | Plug 'altercation/vim-colors-solarized'
+        Plug 'arcticicestudio/nord-vim'
         Plug 'whatyouhide/vim-gotham'
         Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
         Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -38,11 +39,15 @@ endif
 
 " Color scheme and font
 
+" copy nord.colorscheme in .kde/share/apps/konsole/ to load it in yakuake;
+" seems nicer without the colorscheme option enabled
+" colorscheme nord
+
 " colorscheme xoria256
 
 " colorscheme desert
 
-colorscheme gotham256
+" colorscheme gotham
 
 " colorscheme solarized
 " if has('gui_running')
