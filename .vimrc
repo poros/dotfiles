@@ -14,7 +14,8 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
         Plug 'flazz/vim-colorschemes' | Plug 'altercation/vim-colors-solarized'
         Plug 'arcticicestudio/nord-vim'
         Plug 'whatyouhide/vim-gotham'
-        Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+        Plug 'vim-airline/vim-airline'
+"         Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
         Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
         Plug 'klen/python-mode', { 'for': 'python' }
         Plug 'davidhalter/jedi-vim', { 'for': 'python' }
@@ -39,8 +40,6 @@ endif
 
 " Color scheme and font
 
-" copy nord.colorscheme in .kde/share/apps/konsole/ to load it in yakuake;
-" seems nicer without the colorscheme option enabled
 " colorscheme nord
 
 " colorscheme xoria256
@@ -70,6 +69,12 @@ endif
 "if &t_Co == 8 && $TERM !~# '^linux'
 "	set t_Co=16
 "endif
+
+" Configuration for vim-airline
+let g:airline_powerline_fonts = 1
+" if xterm was set correctly, these would probably not be needed
+set t_Co=256
+set term=xterm-256color
 
 
 augroup highlights
