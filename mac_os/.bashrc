@@ -8,7 +8,7 @@ sourceFrom () {
    base_file="$1"
    source_file="${ENVSETUP}/${base_file}";
    if [ -f "${source_file}" ]; then
-       . ${source_file}
+       . "${source_file}"
        return 0
    else
        return 1
@@ -39,12 +39,12 @@ sourceFrom "bashrc-host-${HOSTNAME}"
 # Final processing after OS-specific and host-specific setup.
 sourceFrom bashrc-common-final
 
+# python autocompletion
 export PYTHONSTARTUP=~/.pythonrc.py
-export RUST_SRC_PATH=~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
 
-# Setting PATH for Python 3.5
-# The orginal version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
-# Setting cargo PATH for rust
-PATH="$HOME/.cargo/bin:$PATH"
-export PATH
+# rust setup
+export PATH="$PATH:$HOME/.cargo/bin"
+export RUST_SRC_PATH="~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
+
+# java setup
+export JAVA_HOME="/usr/lib/jvm/java-8-oracle-1.8.0.92"

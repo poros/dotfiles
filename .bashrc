@@ -8,7 +8,7 @@ sourceFrom () {
    base_file="$1"
    source_file="${ENVSETUP}/${base_file}";
    if [ -f "${source_file}" ]; then
-       . ${source_file}
+       . "${source_file}"
        return 0
    else
        return 1
@@ -39,8 +39,12 @@ sourceFrom "bashrc-host-${HOSTNAME}"
 # Final processing after OS-specific and host-specific setup.
 sourceFrom bashrc-common-final
 
+# python autocompletion
 export PYTHONSTARTUP=~/.pythonrc.py
+
+# rust setup
+export PATH="$PATH:$HOME/.cargo/bin"
 export RUST_SRC_PATH="/nail/home/antonio/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
 
-# Setting cargo PATH for rust
-PATH="$HOME/.cargo/bin:$PATH"
+# java setup
+export JAVA_HOME="/usr/lib/jvm/java-8-oracle-1.8.0.92"

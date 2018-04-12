@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Add in the ~/bin in home directory to the path
-export PATH=$PATH:~/bin
+export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 
 #Add homedir for python packages
 #export PYTHONPATH=$PYTHONPATH:~/py-lib:~/bin
