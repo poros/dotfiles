@@ -30,6 +30,7 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
         Plug 'hashivim/vim-terraform'
         Plug 'cespare/vim-toml'
         Plug 'tpope/vim-unimpaired'
+        Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     call plug#end()
 endif
 
