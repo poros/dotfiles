@@ -23,3 +23,7 @@ alias git-list-local-branches="git for-each-ref --sort=-committerdate refs/heads
 # System stuff
 alias shutdown="/sbin/shutdown -h now"
 alias reboot="/sbin/reboot"
+
+
+# Yelp
+alias review-branch="python /Library/Python/2.7/site-packages/review_branch/main.py"
