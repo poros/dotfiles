@@ -47,4 +47,8 @@ export PATH="$PATH:$HOME/.cargo/bin"
 export RUST_SRC_PATH="/nail/home/antonio/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
 
 # java setup
-export JAVA_HOME="/usr/lib/jvm/java-8-oracle-1.8.0.92"
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+ssh-add -A
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
