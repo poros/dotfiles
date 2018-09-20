@@ -36,6 +36,8 @@ plr = pull --rebase
 ps-del = push --delete
 mrg = merge --no-ff
 brd = branch -d
+msg = log --format=%B -n 1
+msgs = log --format=%B -n
 
 
 [push]
