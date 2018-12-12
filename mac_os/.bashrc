@@ -39,6 +39,9 @@ sourceFrom "bashrc-host-${HOSTNAME}"
 # Final processing after OS-specific and host-specific setup.
 sourceFrom bashrc-common-final
 
+# Brew path change
+export PATH="$PATH:/usr/local/sbin"
+
 # python autocompletion
 export PYTHONSTARTUP=~/.pythonrc.py
 
