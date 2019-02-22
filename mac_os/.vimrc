@@ -1,41 +1,48 @@
-" Pathogen load
-"filetype off
-"
-"call pathogen#infect()
-"call pathogen#helptags()
+" remember to brew install vim and restart shell
 
-" Load vim-plug
-if empty(glob("~/.vim/autoload/plug.vim"))
-    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+" Load Vundle
+if empty(glob("~/.vim/bundle/Vundle.vim"))
+    execute '!mkdir -p ~/.vim/bundle'
+    execute '!git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim'
 endif
 
-if !empty(glob("~/.vim/autoload/plug.vim"))
-    call plug#begin()
-        Plug 'flazz/vim-colorschemes' | Plug 'altercation/vim-colors-solarized'
-        Plug 'arcticicestudio/nord-vim'
-        Plug 'whatyouhide/vim-gotham'
-        Plug 'vim-airline/vim-airline'
-"         Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-        Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-        Plug 'klen/python-mode', { 'for': 'python' }
-        Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-        Plug 'scrooloose/syntastic'
-        Plug 'tpope/vim-fugitive'
-        Plug 'fatih/vim-go', { 'for': 'go' }
-        Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
-        Plug 'Rykka/riv.vim', { 'for': 'rst' }
-        Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-        Plug 'timonv/vim-cargo'
-        Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-        Plug 'hashivim/vim-terraform'
-        Plug 'cespare/vim-toml'
-        Plug 'tpope/vim-unimpaired'
-        Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    call plug#end()
+set nocompatible              " be iMproved, required
+filetype off                  " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'whatyouhide/vim-gotham'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/nerdtree'
+Plugin 'rodjek/vim-puppet'
+Plugin 'Rykka/riv.vim'
+Plugin 'rust-lang/rust.vim'
+Plugin 'timonv/vim-cargo'
+Plugin 'hashivim/vim-terraform'
+Plugin 'cespare/vim-toml'
+Plugin 'junegunn/fzf'
+Plugin 'klen/python-mode'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'fatih/vim-go'
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" Install YouCompleteMe (aka YCM)
+if (!empty(glob("~/.vim/bundle/YouCompleteMe/CONTRIBUTING.md")) && empty(glob("~/.vim/bundle/YouCompleteMe/END_SETUP")))
+    execute '!cd ~/.vim/bundle/YouCompleteMe && python3 install.py --go-completer --java-completer --rust-completer && touch END_SETUP && cd ~'
 endif
 
-
-
+" Install fzf
+if (!empty('~/.fzf/README.md') && empty(glob("~/.fzf/END_SETUP")))
+    execute '!cd ~/.fzf && ./install --all && touch END_SETUP && cd ~'
+endif
 
 " ---- Color Customization ----
 
@@ -59,17 +66,17 @@ colorscheme gotham256
 
 " Recommended config for powerline - no difference though
 " set guifont=Inconsolata\ for\ Powerline:h15
-"let g:Powerline_symbols = 'fancy'
-"set encoding=utf-8
-"set t_Co=256
-"set fillchars+=stl:\ ,stlnc:\
+" let g:Powerline_symbols = 'fancy'
+" set encoding=utf-8
+" set t_Co=256
+" set fillchars+=stl:\ ,stlnc:\
 " set term=xterm-256color
-"set termencoding=utf-8
-
-" Allow color schemes to do bright colors without forcing bold.
-"if &t_Co == 8 && $TERM !~# '^linux'
-"	set t_Co=16
-"endif
+" set termencoding=utf-8
+"
+"  Allow color schemes to do bright colors without forcing bold.
+" if &t_Co == 8 && $TERM !~# '^linux'
+" 	set t_Co=16
+" endif
 
 " Configuration for vim-airline
 let g:airline_powerline_fonts = 1
@@ -164,14 +171,12 @@ let g:syntastic_python_flake8_args = '--ignore=E226,E262,E261,E126,E501,E701,E73
 let g:syntastic_python_checkers = ['python', 'flake8']
 let g:syntastic_always_populate_loc_list = 1 " refresh the error list automatocally instead of typing :Errors
 let g:syntastic_auto_loc_list = 1 " open the error list automatically instead of using :Errors
-" let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck'] " fix vim lagging when closing go files
+let g:syntastic_go_checkers = ['gofmt', 'golint', 'govet', 'errcheck'] " fix vim lagging when closing go files
 " let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] } " fix vim lagging when closing go files
 let g:pymode_rope = 0 " disable pymode rope autocompletion due to bug, use jedi-vim instead
-let g:jedi#use_tabs_not_buffers = 1 " jedi-vim go to definition open tab <leader>d
 let g:go_list_type = "quickfix" " fix the location list window that contains the output of commands such as :GoBuild and :GoTest not appearing
 let g:rustfmt_autosave = 1 "enable auto-formatting on saving for rust
-let g:racer_cmd = "$HOME/.cargo/bin/racer"
-let g:racer_experimental_completer = 1
+let g:syntastic_sh_checkers = ['sh'] "shellcheck seems to be broken on devboxes
 
 map <C-n> :NERDTreeToggle<CR>
 

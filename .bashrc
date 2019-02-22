@@ -46,6 +46,9 @@ export PYTHONSTARTUP=~/.pythonrc.py
 export PATH="$PATH:$HOME/.cargo/bin"
 export RUST_SRC_PATH="/nail/home/antonio/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
 
+# golang setup
+export PATH="$PATH:$HOME/go/bin"
+
 # java setup
 export JAVA_HOME=$(/usr/libexec/java_home)
 

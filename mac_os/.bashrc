@@ -49,5 +49,8 @@ export PYTHONSTARTUP=~/.pythonrc.py
 export PATH="$PATH:$HOME/.cargo/bin"
 export RUST_SRC_PATH="~/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
 
+# golang setup
+export PATH="$PATH:$HOME/go/bin"
+
 # java setup
 export JAVA_HOME="/usr/lib/jvm/java-8-oracle-1.8.0.92"
