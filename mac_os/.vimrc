@@ -180,9 +180,9 @@ let g:syntastic_sh_checkers = ['sh'] "shellcheck seems to be broken on devboxes
 
 map <C-n> :NERDTreeToggle<CR>
 
-au FileType rust nmap gd <Plug>(rust-def)
-au FileType rust nmap gs <Plug>(rust-def-split)
-au FileType rust nmap gx <Plug>(rust-def-vertical)
-au FileType rust nmap gm <Plug>(rust-doc)
-imap <C-Space> <C-x><C-o>
-imap <C-@> <C-Space>
+let mapleader=","
+nnoremap <leader>g :YcmCompleter GoTo<CR>
+nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>t :YcmCompleter GetType<CR>
+nnoremap <leader>do :YcmCompleter GetDoc<CR>
+nnoremap <leader>fi :YcmCompleter FixIt<CR>
