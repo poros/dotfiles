@@ -163,6 +163,7 @@ set laststatus=2 " powerline shows up also without splits
 
 let g:pymode_folding = 1 " activate folding for pymode
 let g:pymode_virtualenv = 1 " let pymode look into virtualenv
+let g:pymode_options_max_line_length = 120 " sidebar is at column X
 
 " let g:pymode_lint_ignore = 'E226,E262,E261,E126,E501,E701,E731,E301,E302,E128,W191,W0312,C901'
 " let g:syntastic_mode_map = { 'passive_filetypes': ['python'] } " deactivate syntastic for python files since pymode
