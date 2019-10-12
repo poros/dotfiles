@@ -38,6 +38,7 @@ mrg = merge --no-ff
 brd = branch -d
 msg = log --format=%B -n 1
 msgs = log --format=%B -n
+brc = "!f() { git push --delete origin $@ && git branch -D $@; }; f"
 
 
 [push]
