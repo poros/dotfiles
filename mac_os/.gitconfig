@@ -1,0 +1,50 @@
+[core]
+editor = vim
+edit = vim
+excludesfile = ~/.gitignore_global
+[color]
+branch = auto
+diff = auto
+interactive = auto
+status = auto
+ui = true
+[merge]
+conflictstyle = diff3
+	tool = vimdiff
+
+[alias]
+# Generic
+cleanup = !git fsck && git prune && git gc
+nukefromorbit = !git clean -xfd && git submodule update --init && git submodule foreach git clean -xfd && make
+english-diff = !git diff --minimal --color=auto --word-diff=plain --ignore-space-at-eol --ignore-space-change
+today = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
+
+# Merges
+edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+
+# Shortcut
+co = checkout
+cm = commit -m
+ci = commit
+st = status
+fc = fetch --prune
+ca = commit --amend
+ps = push
+pl = pull
+plr = pull --rebase
+ps-del = push --delete
+mrg = merge --no-ff
+brd = branch -d
+msg = log --format=%B -n 1
+msgs = log --format=%B -n
+brc = "!f() { git push --delete origin $@ && git branch -D $@; }; f"
+
+
+[push]
+    default = current
+[user]
+	name = Antonio Uccio Verardi
+	email = antonio.uccio.verardi@gmail.com
+[credential]
+	helper = store
