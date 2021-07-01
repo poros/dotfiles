@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 # User custom scripts
 
 historyawk() { history|awk '{a[$2]++}END{for(i in a){printf"%5d\t%s\n",a[i],i}}'|sort -nr|head; }
@@ -49,4 +49,9 @@ set_gopath() {
 # open interactive shell in a docker container
 docker_shell() {
     docker exec -ti $1 env COLUMNS=$COLUMNS LINES=$LINES TERM=$TERM /bin/bash
+}
+
+# delete git branch from both remote and local repo
+git-branch-delete() {
+    git push --delete origin $1 && git branch -D $1
 }
