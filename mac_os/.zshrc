@@ -152,6 +152,11 @@ which aactivator > /dev/null 2>&1 && eval "$(aactivator init)"
 # Brew path change
 export PATH="$PATH:/usr/local/sbin"
 
+# pyenv python path
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
 # python autocompletion
 export PYTHONSTARTUP=~/.pythonrc.py
 

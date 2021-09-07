@@ -39,11 +39,6 @@ if (!empty(glob("~/.vim/bundle/YouCompleteMe/CONTRIBUTING.md")) && empty(glob("~
     execute '!cd ~/.vim/bundle/YouCompleteMe && python3 install.py --go-completer --java-completer --rust-completer && touch END_SETUP && cd ~'
 endif
 
-" Install fzf
-if (!empty('~/.fzf/README.md') && empty(glob("~/.fzf/END_SETUP")))
-    execute '!cd ~/.fzf && ./install --all && touch END_SETUP && cd ~'
-endif
-
 " ---- Color Customization ----
 
 " Color scheme and font
