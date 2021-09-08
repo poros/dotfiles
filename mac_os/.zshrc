@@ -156,6 +156,8 @@ export PATH="$PATH:/usr/local/sbin"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # python autocompletion
 export PYTHONSTARTUP=~/.pythonrc.py

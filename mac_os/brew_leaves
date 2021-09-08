@@ -19,7 +19,7 @@ mosh
 node
 openal-soft
 poetry
-pyenv
+pyenv-virtualenv
 rbenv
 scala
 tig
