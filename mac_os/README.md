@@ -10,7 +10,7 @@
 * Install all apps you want (Whatsapp, Messenger, Telegram)
 * Install homebrew
 * install all brew leaves (see file) - brew install $(cat brew_leaves)
-* install python with pyenv and set pyenv global (you must export PYTHON_CONFIGURE_OPTS="--enable-framework" for the installation to work with YouCompleteMe)
+* install python with pyenv and set pyenv global (NOTE: you must export PYTHON_CONFIGURE_OPTS="--enable-framework" BEFORE to install it for the installation to work with YouCompleteMe)
 * install java (brew) and set runtime link `sudo ln -sfn /opt/homebrew/Cellar/openjdk/17.0.2/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk` (note that the path may change based on the homebrew install path)
 * install powerline fonts (git needed)
 * Install iterm and configure it from config_files

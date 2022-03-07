@@ -158,7 +158,6 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-export PYTHON_CONFIGURE_OPTS="--enable-framework"
 
 # python autocompletion
 export PYTHONSTARTUP=~/.pythonrc.py
