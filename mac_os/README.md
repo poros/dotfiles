@@ -6,17 +6,17 @@
 * Install Alfred and configure it from config_files
 * Install Sizeup
 * Install Webcam Setting from App Store
-* Install XCode from App Store
-* Install all apps you want
+* Install command line tools: xcode-select -—install
+* Install all apps you want (Whatsapp, Messenger, Telegram)
 * Install homebrew
-* install all brew leaves (see file)
+* install all brew leaves (see file) - brew install $(cat brew_leaves)
 * install python with pyenv and set pyenv global (you must export PYTHON_CONFIGURE_OPTS="--enable-framework" for the installation to work with YouCompleteMe)
-* install java (brew) and set runtime link `sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk`
+* install java (brew) and set runtime link `sudo ln -sfn /opt/homebrew/Cellar/openjdk/17.0.2/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk` (note that the path may change based on the homebrew install path)
 * install powerline fonts (git needed)
 * Install iterm and configure it from config_files
 * install oh-my-zsh
 * clone and copy dotfiles
-* install oh-my-zsh fzf plugin (external)
+* install fzf (brew) (Note: you have to generate the autocompletion file manually)
 * install ruby with rbenv and set rbenv global
 * install node (brew)
 * install go (brew)

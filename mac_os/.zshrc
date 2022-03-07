@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Brew path change
+export PATH="/opt/homebrew/bin:$PATH:/usr/local/sbin"
+
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/antonio/.oh-my-zsh"
 
@@ -149,15 +152,13 @@ export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
 # initialize aactivator
 which aactivator > /dev/null 2>&1 && eval "$(aactivator init)"
 
-# Brew path change
-export PATH="$PATH:/usr/local/sbin"
-
 # pyenv python path
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+export PYTHON_CONFIGURE_OPTS="--enable-framework"
 
 # python autocompletion
 export PYTHONSTARTUP=~/.pythonrc.py
@@ -173,10 +174,13 @@ export PATH="$PATH:$HOME/go/bin"
 export JAVA_HOME=$(/usr/libexec/java_home)
 
 # ssh forwarding needs this in mac os to function properly
-ssh-add -A
+ssh-add --apple-load-keychain
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# fzf setup (you have to install it manually via brew and then generate the file)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
