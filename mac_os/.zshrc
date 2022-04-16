@@ -175,11 +175,8 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 # ssh forwarding needs this in mac os to function properly
 ssh-add --apple-load-keychain
 
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# Loads rbenv in the shell
+eval "$(rbenv init - zsh)"
 
 # fzf setup (you have to install it manually via brew and then generate the file)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
